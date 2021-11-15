@@ -1,9 +1,23 @@
+
+
 void setOffsetT1(float offset) {
-  setOffset(offset, 1);
+  if (offset > offset_max_range || offset < -offset_max_range) {
+    Serial.println("T1_offset out of range");   
+  }
+  else {
+    setOffset(offset, 1);
+  }
+  T1_offset = readOffsetT1();
 }
 
 void setOffsetT2(float offset) {
-  setOffset(offset, 4);
+  if (offset > offset_max_range || offset < -offset_max_range) {
+    Serial.println("T2_offset out of range");   
+  }
+  else {
+    setOffset(offset, 4);
+  }
+  T2_offset = readOffsetT2();
 }
 
 float readOffsetT1() {

@@ -9,7 +9,7 @@ bool old_boiler_relay_state;
 unsigned long boiler_last_change_time;
 unsigned long boiler_change_time = 1000;
 
-double Ttarget = 25.0;
+
 
 
 //Specify the links and initial tuning parameters
@@ -18,15 +18,15 @@ double pid_low_action = 10; //low than this, stop the boiler
 double pid_high_action = 10; //high than this, start the boiler
 
 double Kp=2, Ki=5, Kd=1;
-PID myPID(&Tmean, &boiler_pid, &Ttarget, Kp, Ki, Kd, DIRECT);
+PID myPID(&Tmean, &boiler_pid, &Tboiler, Kp, Ki, Kd, DIRECT);
 
 
 void setup_boiler() {
   pinMode(BOILER_PIN, OUTPUT);
   
-  Ttarget = readBoilerTarget(); //Read from EEprom
+  Tboiler = readBoilerTarget(); //Read from EEprom
   if (DEBUG) {
-    Serial.println("Ttarget = " + String(Ttarget));
+    Serial.println("Ttarget = " + String(Tboiler));
   }
   // tell the PID to range between 0 and the full window size
   myPID.SetMode(AUTOMATIC);

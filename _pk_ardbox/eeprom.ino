@@ -11,7 +11,8 @@
  /****************************
   *      OFFSET 
   ****************************/
-float offset_max_range = 20.0;
+
+
 void setOffset (float offset, int address) {
   int offset_sign = 0;
   if (offset < 0.) {
@@ -55,7 +56,7 @@ void setBoilerTarget(float b_t) {
   }
   EEPROM.update(address, bt_int);
   EEPROM.update(address+1, bt_dec);
-  
+  Tboiler = b_t; 
 }
 
 float readBoilerTarget() {
