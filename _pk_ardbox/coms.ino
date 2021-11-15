@@ -29,7 +29,7 @@ void RS485Event() {
   }
   else if (rx == 10) { //  '\n - end'
     if (DEBUG) {
-      Serial.println(rcv_message);
+      Serial.print("RS485Event");Serial.println(rcv_message);
     }
     route_RS485(rcv_message);
   }
@@ -60,7 +60,7 @@ void route_RS485(String message) {
     setOffsetT2(message.substring(9, message.length()).toFloat());
   }
   else if (message.startsWith("Tboiler")) {
-    setBoilerTarget(message.substring(9, message.length()).toFloat());
+    setBoilerTarget(message.substring(8, message.length()).toFloat());
   }
 }
 

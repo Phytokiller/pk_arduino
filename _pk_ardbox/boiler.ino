@@ -25,6 +25,9 @@ void setup_boiler() {
   pinMode(BOILER_PIN, OUTPUT);
   
   Ttarget = readBoilerTarget(); //Read from EEprom
+  if (DEBUG) {
+    Serial.println("Ttarget = " + String(Ttarget));
+  }
   // tell the PID to range between 0 and the full window size
   myPID.SetMode(AUTOMATIC);
 }
