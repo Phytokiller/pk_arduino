@@ -9,7 +9,7 @@
  * 
  */
 
-#define DEBUG -2 // 0 : no print, 1 : basic, -1 : realtime temp, -2 : pid value
+#define DEBUG 1 // 0 : no print, 1 : basic, -1 : realtime temp, -2 : pid value
 
 double T1;
 double T2;

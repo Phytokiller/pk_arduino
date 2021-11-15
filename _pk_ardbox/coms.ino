@@ -1,4 +1,15 @@
-// Include Industrial Shields libraries
+/*
+ * Receive : 
+ *  ALARM : "!alarm:1"
+ *  T1 OFFSET : "!T1offset:xx.xx" 
+ *  T2 OFFSET : "!T2offset:xx.xx"
+ * 
+ * Send :
+ *  DOOR : door:X
+ *  SENSORS : sensors:XX.xx:YY.yy
+ *  BOILER : boiler:X
+ *  
+ */
 #include <RS485.h>
 
 String rcv_message = "";
@@ -29,9 +40,7 @@ void RS485Event() {
 
 void route_RS485(String message) {
   /*
-   * ALARM : "!alarm:1"
-   * T1 OFFSET : "!T1offset:xx.xx" 
-   * T2 OFFSET : "!T2offset:xx.xx"
+   * 
    * 
    * 
    * 
@@ -83,5 +92,9 @@ void send_RS485_boiler() {
     Serial.println(Bmessage);
   }
   send_RS485(Bmessage);
+}
+
+void send_RS485_t1offset() {
+  
 }
     

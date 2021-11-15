@@ -1,4 +1,4 @@
-#include <PID_v1.h>
+#include <PID_v2.h>
 
 #define BOILER_PIN 6 //R3
 
