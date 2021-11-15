@@ -59,6 +59,9 @@ void route_RS485(String message) {
   else if (message.startsWith("T2offset")) {
     setOffsetT2(message.substring(9, message.length()).toFloat());
   }
+  else if (message.startsWith("Tboiler")) {
+    setBoilerTarget(message.substring(9, message.length()).toFloat());
+  }
 }
 
 // ------------ SEND -------------

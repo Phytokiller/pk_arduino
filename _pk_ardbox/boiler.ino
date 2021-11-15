@@ -23,6 +23,8 @@ PID myPID(&Tmean, &boiler_pid, &Ttarget, Kp, Ki, Kd, DIRECT);
 
 void setup_boiler() {
   pinMode(BOILER_PIN, OUTPUT);
+  
+  Ttarget = readBoilerTarget(); //Read from EEprom
   // tell the PID to range between 0 and the full window size
   myPID.SetMode(AUTOMATIC);
 }
