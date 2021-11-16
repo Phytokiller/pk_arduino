@@ -5,7 +5,6 @@
 bool boiler_relay_state = false;
 bool old_boiler_relay_state;
 
-
 unsigned long boiler_last_change_time;
 unsigned long boiler_change_time = 1000;
 
@@ -14,11 +13,11 @@ unsigned long boiler_change_time = 1000;
 
 //Specify the links and initial tuning parameters
 double boiler_pid; // 0-255
-double pid_low_action = 10; //low than this, stop the boiler
-double pid_high_action = 10; //high than this, start the boiler
+double pid_low_action = 100; //low than this, stop the boiler
+double pid_high_action = 155; //high than this, start the boiler
 
 double Kp=2, Ki=5, Kd=1;
-PID myPID(&Tmean, &boiler_pid, &Tboiler-1, Kp, Ki, Kd, DIRECT);
+PID myPID(&Tmean, &boiler_pid, &Tboiler, Kp, Ki, Kd, DIRECT);
 
 
 void setup_boiler() {
