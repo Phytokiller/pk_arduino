@@ -14,7 +14,7 @@ unsigned long boiler_change_time = 1000;
 
 //Specify the links and initial tuning parameters
 double boiler_pid; // 0-255
-double pid_low_action = 0; //low than this, stop the boiler
+double pid_low_action = 10; //low than this, stop the boiler
 double pid_high_action = 10; //high than this, start the boiler
 
 double Kp=2, Ki=5, Kd=1;
