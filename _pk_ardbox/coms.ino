@@ -65,6 +65,13 @@ void route_RS485(String message) {
     }
     send_RS485_getSettings();
   }
+  else if(message.startsWith("getStatus")) {
+    if (DEBUG) {
+      Serial.println("get status asked !");
+    }
+    send_RS485_door();
+    send_RS485_boiler();
+  }
   else if (message.startsWith("T1offset")) {
     setOffsetT1(message.substring(9, message.length()).toFloat());
   }
