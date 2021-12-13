@@ -64,6 +64,8 @@ void route_RS485(String message) {
       Serial.println("get setting asked !");
     }
     send_RS485_getSettings();
+    send_RS485_door();
+    send_RS485_boiler();
   }
   else if(message.startsWith("getStatus")) {
     if (DEBUG) {
