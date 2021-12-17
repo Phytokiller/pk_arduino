@@ -1,10 +1,12 @@
-#define LIGHT_PIN 7 //R6
+#define ALARM1_PIN 10 //R1
+#define ALARM2_PIN 9 //R2
 
 unsigned long alarmDebounceTime = 0;
 unsigned long alarmDebounceDelay = 5000;
 
 void setup_alarm() {
-  pinMode(LIGHT_PIN, OUTPUT);
+  pinMode(ALARM1_PIN, OUTPUT);
+  pinMode(ALARM2_PIN, OUTPUT);
 }
 
 
@@ -19,9 +21,9 @@ void loop_alarm() {
 }
 
 void set_temp_alarm(bool state) {
-  digitalWrite(LIGHT_PIN, state);
+  digitalWrite(ALARM2_PIN, state);
 }
 
 void set_timeout_alarm(bool state) {
-  digitalWrite(LIGHT_PIN, state);
+  digitalWrite(ALARM1_PIN, state);
 }
