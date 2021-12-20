@@ -47,12 +47,13 @@ void route_RS485(String message) {
    * 
    * 
    */
-  if (message.startsWith("alarm")) {
+  if (message.startsWith("alarmHigh")) {
     if (DEBUG) {
-      Serial.println("receive alarm");
+      Serial.println("receive alarm High");
     }
-    temp_alarm_state = true;
+    process_Alarm_High(message.substring(8, message.length()).toInt());
   }
+  
   else if (message.startsWith("timeout")) {
     if (DEBUG) {
       Serial.println("receive timeout");

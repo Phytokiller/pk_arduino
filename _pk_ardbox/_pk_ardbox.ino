@@ -30,7 +30,6 @@ float T1_offset;
 float T2_offset;
 float offset_max_range = 20.0;
 
-bool temp_alarm_state = false;
 bool timeout_alarm_state = false;
 
 void setup() {

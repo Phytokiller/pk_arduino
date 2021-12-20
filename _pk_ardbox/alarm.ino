@@ -1,29 +1,42 @@
 #define ALARM1_PIN 10 //R1
 #define ALARM2_PIN 9 //R2
 
-unsigned long alarmDebounceTime = 0;
-unsigned long alarmDebounceDelay = 5000;
+unsigned long timeoutDebounceTime = 0;
+unsigned long timeoutDebounceDelay = 5000;
+
+bool alarm1_state = false;
+bool alarm2_state = true;
 
 void setup_alarm() {
   pinMode(ALARM1_PIN, OUTPUT);
+  digitalWrite(ALARM1_PIN, LOW);
   pinMode(ALARM2_PIN, OUTPUT);
+  digitalWrite(ALARM2_PIN, LOW);
 }
 
 
 void loop_alarm() {
-  if (millis() > (alarmDebounceTime + alarmDebounceDelay)) {
-    set_temp_alarm(temp_alarm_state);
-    temp_alarm_state = false;
-//    set_timeout_alarm(timeout_alarm_state);
-//    timeout_alarm_state = false;
-    alarmDebounceTime = millis();
+  
+  if (millis() > (timeoutDebounceTime + timeoutDebounceDelay)) {
+    set_timeout_alarm(timeout_alarm_state);
+    timeout_alarm_state = false;
+    timeoutDebounceTime = millis();
+  }
+  
+}
+
+
+void process_Alarm_High(int data) { // called by com
+  if(data != alarm1_state) {
+    if (DEBUG) {
+        Serial.print("Change Alarm1 from Alarm High to");
+        Serial.println(data);
+      }
+    alarm1_state = data;
+    digitalWrite(ALARM1_PIN, alarm1_state);
   }
 }
 
-void set_temp_alarm(bool state) {
-  digitalWrite(ALARM2_PIN, state);
-}
-
 void set_timeout_alarm(bool state) {
-  digitalWrite(ALARM1_PIN, state);
+  digitalWrite(ALARM2_PIN, state);
 }
