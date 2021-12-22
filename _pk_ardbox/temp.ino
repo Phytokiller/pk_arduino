@@ -52,6 +52,12 @@ void loop_temp() {
     updateTemp(T1_PIN, T1_array, T1_offset, T1);
     updateTemp(T2_PIN, T2_array, T2_offset, T2);
     Tmean = (T1 + T2)/2;
+    if(T1 > T2) {
+      Tmax = T1;
+    }
+    else {
+      Tmax = T2;
+    }
     old_updateTemp = millis();
   }
   

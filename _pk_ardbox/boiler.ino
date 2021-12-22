@@ -10,15 +10,15 @@ unsigned long boiler_change_time = 1000;
 
 
 
-
 //Specify the links and initial tuning parameters
 double boiler_pid; // 0-255
 double pid_low_action = 250; //low than this, stop the boiler
 double pid_high_action = 250; //high than this, start the boiler
 
 double Kp=2, Ki=5, Kd=1;
-PID myPID(&Tmean, &boiler_pid, &Tboiler, Kp, Ki, Kd, DIRECT);
 
+//PID myPID(&Tmean, &boiler_pid, &Tboiler, Kp, Ki, Kd, DIRECT);
+PID myPID(&Tmax, &boiler_pid, &Tboiler, Kp, Ki, Kd, DIRECT);
 
 void setup_boiler() {
   pinMode(BOILER_PIN, OUTPUT);

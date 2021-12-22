@@ -17,9 +17,10 @@
 
 #define DEBUG 1 // 0 : no print, 1 : basic, -1 : realtime temp, -2 : pid value
 
-double T1;
-double T2;
-double Tmean;
+double T1; //mean of T1 sensor
+double T2; //mean of T1 sensor
+double Tmean; //mean of T1 and T2
+double Tmax; // used for boiler is T1 or T2 depends wich one is higher
 
 double Tboiler = 25.0;
 
