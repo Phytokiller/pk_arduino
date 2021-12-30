@@ -39,5 +39,6 @@ void process_Alarm_High(int data) { // called by com
 }
 
 void set_timeout_alarm(bool state) {
-  digitalWrite(ALARM1_PIN, !state);
+  //digitalWrite(ALARM1_PIN, !state);
+  digitalWrite(ALARM2_PIN, state);
 }
