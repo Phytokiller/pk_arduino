@@ -1,7 +1,7 @@
 #define DOOR_PIN A2
 
 unsigned long lastDebounceTime = 0;
-unsigned long debounceDelay = 10000;
+unsigned long debounceDelay = 120000; //2 min
 
 
 void setup_door() {
